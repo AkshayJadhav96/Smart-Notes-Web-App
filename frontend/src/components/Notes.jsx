@@ -104,15 +104,15 @@ const Notes = () => {
   }
 
   return (
-    <section className='flex flex-col gap-8'>
-        <div className='rounded-4xl border border-white/70 bg-white/80 p-6 shadow-xl shadow-slate-200/60 backdrop-blur sm:p-8'>
+    <section className='flex flex-col gap-6 sm:gap-8'>
+        <div className='rounded-[1.5rem] border border-white/70 bg-white/80 p-5 shadow-xl shadow-slate-200/60 backdrop-blur sm:rounded-4xl sm:p-8'>
           <div className='flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between'>
             <div>
-              <p className='text-sm font-bold uppercase tracking-[0.2em] text-amber-600'>Your Workspace</p>
-              <h1 className='mt-2 text-4xl font-black tracking-tight text-slate-950'>Smart Notes</h1>
-              <p className='mt-2 max-w-2xl text-slate-600'>Search, filter, create, and polish your notes in one calm dashboard.</p>
+              <p className='text-xs font-bold uppercase tracking-[0.18em] text-amber-600 sm:text-sm sm:tracking-[0.2em]'>Your Workspace</p>
+              <h1 className='mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl'>Smart Notes</h1>
+              <p className='mt-2 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base'>Search, filter, create, and polish your notes in one calm dashboard.</p>
             </div>
-            <div className='grid gap-3 sm:grid-cols-[minmax(0,18rem)_12rem]'>
+            <div className='grid w-full gap-3 sm:grid-cols-[minmax(0,1fr)_12rem] lg:w-auto lg:grid-cols-[minmax(0,18rem)_12rem]'>
               <input className='rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-800 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100' type="text" placeholder="Search notes..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
               <select className='rounded-2xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-700 shadow-sm outline-none transition focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100' value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
                 <option value="All">All</option>
@@ -126,14 +126,14 @@ const Notes = () => {
           {loading && <p className='mt-6 rounded-2xl bg-indigo-50 px-4 py-3 font-semibold text-indigo-700'>Loading your notes...</p>}
           {error && <div className="mt-6 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 font-semibold text-rose-700">{error}</div>}
         </div>
-        <div className='grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_26rem]'>
+        <div className='grid items-start gap-6 sm:gap-8 xl:grid-cols-[minmax(0,1fr)_24rem]'>
         <NoteList notes={filteredNotes} deleteNote={deleteNote} setEditingNote={setEditingNote}/>
         <NoteForm createNote={createNote} editNote={updateNote} editingNote={editingNote} setEditingNote={setEditingNote}/>
         </div>
-        <div className="flex items-center justify-center gap-4 mt-4">
-        <button className="px-3 py-2 text-sm border rounded-lg text-gray-600 hover:bg-gray-100 transition" disabled={page === 1} onClick={() => setPage(page - 1)}>Previous</button>
-        <span>Page {page} of {totalPages}</span>
-        <button className="px-3 py-2 text-sm border rounded-lg text-gray-600 hover:bg-gray-100 transition" disabled={page === totalPages} onClick={() => setPage(page + 1)}>Next</button>
+        <div className="mt-2 flex flex-wrap items-center justify-center gap-3 text-sm sm:mt-4 sm:gap-4">
+        <button className="rounded-lg border px-3 py-2 text-sm text-gray-600 transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-50" disabled={page === 1} onClick={() => setPage(page - 1)}>Previous</button>
+        <span className='font-medium text-slate-600'>Page {page} of {totalPages}</span>
+        <button className="rounded-lg border px-3 py-2 text-sm text-gray-600 transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-50" disabled={page === totalPages} onClick={() => setPage(page + 1)}>Next</button>
         </div>
     </section>
   )

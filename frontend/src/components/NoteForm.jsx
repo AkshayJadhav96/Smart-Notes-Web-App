@@ -64,9 +64,9 @@ const NoteForm = ({createNote,editNote,editingNote,setEditingNote}) => {
   }, [editingNote]);
 
   return (
-    <div className="sticky top-28 w-full rounded-[2rem] border border-white/80 bg-white/90 p-6 shadow-2xl shadow-slate-200/70 backdrop-blur">
-        <p className="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-indigo-600">Note Editor</p>
-        <h1 className="mb-6 text-3xl font-black tracking-tight text-slate-950">Create a note</h1>
+    <div className="w-full rounded-[1.5rem] border border-white/80 bg-white/90 p-5 shadow-2xl shadow-slate-200/70 backdrop-blur sm:rounded-[2rem] sm:p-6 xl:sticky xl:top-28">
+        <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-indigo-600 sm:text-sm sm:tracking-[0.2em]">Note Editor</p>
+        <h1 className="mb-5 text-2xl font-black tracking-tight text-slate-950 sm:mb-6 sm:text-3xl">Create a note</h1>
         <form className='flex flex-col gap-5' onSubmit={handleSubmit}>
             <div className='flex flex-col gap-2'>
             <label className='text-sm font-bold text-slate-700'>Title</label>
@@ -88,7 +88,7 @@ const NoteForm = ({createNote,editNote,editingNote,setEditingNote}) => {
             </div>
             <div className='flex flex-col gap-2'>
             <label className='text-sm font-bold text-slate-700'>Content</label>
-            <textarea value={formData.content} onChange={handleDataChange} className='min-h-40 resize-none rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 leading-7 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100' type="text" name="content"/>
+            <textarea value={formData.content} onChange={handleDataChange} className='min-h-36 resize-none rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 leading-7 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100 sm:min-h-40' type="text" name="content"/>
              {errors.content && (
               <p className="text-sm font-medium text-rose-500">
                   {errors.content}

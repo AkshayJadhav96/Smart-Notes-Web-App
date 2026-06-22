@@ -54,10 +54,10 @@ const Login = () => {
     }, [isAuthenticated]);
 
   return (
-    <section className="flex min-h-[70vh] items-center justify-center">
-        <div className="w-full max-w-md rounded-4xl border border-white/80 bg-white/90 p-8 shadow-2xl shadow-slate-200/70 backdrop-blur">
-        <p className="mb-2 text-center text-sm font-bold uppercase tracking-[0.2em] text-indigo-600">Welcome Back</p>
-        <h1 className="mb-8 text-center text-4xl font-black tracking-tight text-slate-950">Login</h1>
+    <section className="flex min-h-[65vh] items-center justify-center py-6 sm:min-h-[70vh]">
+        <div className="w-full max-w-md rounded-[1.5rem] border border-white/80 bg-white/90 p-5 shadow-2xl shadow-slate-200/70 backdrop-blur sm:rounded-4xl sm:p-8">
+        <p className="mb-2 text-center text-xs font-bold uppercase tracking-[0.18em] text-indigo-600 sm:text-sm sm:tracking-[0.2em]">Welcome Back</p>
+        <h1 className="mb-6 text-center text-3xl font-black tracking-tight text-slate-950 sm:mb-8 sm:text-4xl">Login</h1>
         <form className='flex flex-col gap-5' onSubmit={handleSubmission}>
             <div className='flex flex-col gap-2'>
             <label className='text-sm font-bold text-slate-700'>Email</label>
